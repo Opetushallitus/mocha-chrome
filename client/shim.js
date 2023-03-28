@@ -1,5 +1,6 @@
 (function shim() {
   Object.defineProperty(window, 'mocha', {
+    configurable: true,
     get() {
       return undefined;
     },
@@ -10,17 +11,17 @@
 
       // mochaOptions is injected in lib/client.js
       mochaOptions = mochaOptions || {
-        ui: 'bdd',
+        color: true,
         reporter: 'spec',
-        color: true
+        ui: 'bdd'
       };
 
       mocha.setup(mochaOptions);
-    },
-    configurable: true
+    }
   });
 
   Object.defineProperty(window, 'Mocha', {
+    configurable: true,
     get() {
       return undefined;
     },
@@ -37,8 +38,7 @@
       };
 
       window._eventbus.emit('width');
-    },
-    configurable: true
+    }
   });
 
   function shimMocha(m) {
@@ -86,12 +86,12 @@
       const keys = [];
 
       if (cycleReplacer == null)
-        cycleReplacer = function(key, value) {
+        cycleReplacer = function (key, value) {
           if (stack[0] === value) return '[Circular ~]';
           return `[Circular ~.${keys.slice(0, stack.indexOf(value)).join('.')}]`;
         };
 
-      return function(key, value) {
+      return function (key, value) {
         if (stack.length > 0) {
           const thisPos = stack.indexOf(this);
           ~thisPos ? stack.splice(thisPos + 1) : stack.push(this);
@@ -103,7 +103,7 @@
       };
     }
 
-    console.format = function(f) {
+    console.format = function (f) {
       if (typeof f !== 'string') {
         return Array.prototype.map.call(arguments, stringify).join(' ');
       }
@@ -139,11 +139,11 @@
       return str;
     };
 
-    console.error = function() {
+    console.error = function () {
       origError.call(console, console.format(...arguments));
     };
 
-    console.log = function() {
+    console.log = function () {
       origLog.call(console, console.format(...arguments));
     };
   }

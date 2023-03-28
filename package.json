@@ -24,16 +24,19 @@
     "test": "mocha test/test.js --timeout 10000 --exit"
   },
   "files": [
-    "client",
-    "lib",
     "cli.js",
+    "client",
     "index.js",
-    "LICENSE",
-    "README.md"
+    "lib",
+    "README.md",
+    "LICENSE"
   ],
+  "peerDependencies": {
+    "mocha": ">= 10.0.0"
+  },
   "dependencies": {
     "chalk": "^2.0.1",
-    "chrome-launcher": "^0.13.4",
+    "chrome-launcher": "^0.15.1",
     "chrome-remote-interface": "^0.28.0",
     "chrome-unmirror": "^0.1.0",
     "debug": "^4.3.4",
@@ -43,14 +46,11 @@
     "meow": "^6.1.1",
     "nanobus": "^4.5.0"
   },
-  "peerDependencies": {
-    "mocha": ">= 10.0.0"
-  },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "chai": "^4.3.7",
-    "eslint-config-shellscape": "^2.1.0",
+    "eslint-config-shellscape": "^6.0.0",
     "execa": "^4.0.3",
     "lint-staged": "^10.4.0",
     "mocha": "^10.2.0",

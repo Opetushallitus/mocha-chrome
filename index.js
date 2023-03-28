@@ -22,15 +22,15 @@ class MochaChrome {
       {
         chromeFlags: [],
         chromeLauncher: {},
+        ignoreConsole: false,
+        ignoreExceptions: false,
+        ignoreResourceErrors: false,
         loadTimeout: 1000,
         logLevel: 'error',
-        ignoreExceptions: false,
-        ignoreConsole: false,
-        ignoreResourceErrors: false,
         mocha: {
+          color: true,
           reporter: 'spec',
-          ui: 'bdd',
-          color: true
+          ui: 'bdd'
         }
       },
       options

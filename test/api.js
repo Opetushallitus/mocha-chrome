@@ -13,11 +13,11 @@ function test(options) {
 
   options = deepAssign(
     (options = {
-      url,
-      mocha: { color: false },
       ignoreConsole: true,
       ignoreExceptions: true,
-      ignoreResourceErrors: true
+      ignoreResourceErrors: true,
+      mocha: { color: false },
+      url
     }),
     options
   );
@@ -33,7 +33,7 @@ function test(options) {
     });
   });
 
-  (async function() {
+  (async function () {
     await runner.connect();
     await runner.run();
   })();
