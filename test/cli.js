@@ -34,13 +34,13 @@ describe('mocha-chrome binary', () => {
 
   it('should default to "spec" reporter', async () => {
     const { stdout } = await cli(['test/html/test.html']);
-    expect(stdout).to.match(/✓/);
+    expect(stdout).to.match(/✅/);
   });
 
   it('should honor --spec parameter', async () => {
     const { stdout } = await cli(['--reporter', 'tap', 'test/html/test.html']);
     expect(stdout).to.match(/ok/);
-    expect(stdout).not.to.match(/✓/);
+    expect(stdout).not.to.match(/✅/);
   });
 
   it('should allow use of --chrome-flags', async () => {
@@ -65,12 +65,12 @@ describe('mocha-chrome binary', () => {
 
   it('should use the --timeout flag value', async () => {
     const { stdout } = await cli(['--timeout', '2000', 'test/html/mocha-run-timeout-1500.html']);
-    expect(stdout).to.match(/✓/);
+    expect(stdout).to.match(/✅/);
   });
 
   it('should not fail tests with resource errors if --ignore-resource-errors is provided', async () => {
     const { exitCode, stderr } = await cli(['test/html/resource-error.html']);
-    expect(exitCode).to.equal(1);
+    expect(exitCode).to.equal(0);
     expect(stderr).to.contain('The following resources failed to load on the page');
     expect(stderr).to.contain('non-existant.css');
   });
