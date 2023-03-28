@@ -14,7 +14,7 @@
 
 ## Requirements
 
-`mocha-chrome` requires Node v8.0.0 or higher.
+`mocha-chrome` requires Node v16.0.0 and Mocha v10.
 
 `mocha-chrome` is a development tool, which means you can use tools like [NVM](https://github.com/creationix/nvm) and [nodenv](https://github.com/nodenv/nodenv) to manage your installed versions, and temporarily switch to v8+ to run tests on your machine. Most modern CI environments also support specifying the version of Node to run.
 
@@ -29,7 +29,7 @@ $ npm install mocha-chrome --save-dev
 Then you'll need a local npm install of mocha:
 
 ```console
-$ npm install mocha --save-dev
+$ npm install mocha@^10 --save-dev
 ```
 
 To run the tests, you'll need an HTML file with some basics:
