@@ -3,8 +3,8 @@
   "version": "3.0.0",
   "description": "☕  Run Mocha tests using headless Google Chrome",
   "license": "MIT",
-  "repository": "shellscape/mocha-chrome",
-  "author": "shellscape",
+  "repository": "Opetushallitus/mocha-chrome",
+  "author": "Opetushallitus",
   "main": "index.js",
   "bin": {
     "mocha-chrome": "./cli.js"
@@ -14,12 +14,9 @@
   },
   "scripts": {
     "ci:lint": "npm run lint && npm run security",
-    "ci:lint:commits": "commitlint --from=${CIRCLE_BRANCH} --to=${CIRCLE_SHA1}",
     "ci:test": "npm run test -- --verbose",
-    "commitlint": "commitlint",
-    "commitmsg": "commitlint -e $GIT_PARAMS",
-    "lint": "eslint --fix --cache cli.js index.js client lib test",
-    "lint-staged": "lint-staged",
+    "lint": "eslint *.js **/*.js",
+    "lint:fix": "eslint --fix",
     "security": "npm audit --audit-level=moderate",
     "test": "mocha test/test.js --timeout 10000 --exit"
   },
@@ -47,25 +44,12 @@
     "nanobus": "^4.5.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
     "chai": "^4.3.7",
     "eslint": "^8.37.0",
-    "eslint-config-shellscape": "^6.0.0",
-    "execa": "^4.0.3",
-    "lint-staged": "^10.4.0",
-    "mocha": "^10.2.0",
-    "pre-commit": "^1.2.2"
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "package.json": [
-      "prettier --write package.json",
-      "git add"
-    ]
-  },
-  "pre-commit": "lint-staged"
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "execa": "^4.0.3"
+  }
 }

@@ -1,2 +1,2 @@
-require('./api');
-require('./cli');
+require('./api')
+require('./cli')

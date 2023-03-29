@@ -1,6 +1,13 @@
 {
-  "extends": "shellscape",
   "env": {
+    "browser": true,
+    "commonjs": true,
+    "node": true,
     "mocha": true
-  }
+  },
+  "extends": ["standard"],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {}
 }
