@@ -13,10 +13,12 @@
 
 ## Publishing a new version
 
-Tee tarvittavat koodimuutokset ja committoi koodi.
+Make changes to the code, commit and push.
+
+After that, run the following commands:
 
 ```
-git tag vX.Y.Z
+git tag X.Y.Z
 git push --tags
 npm install --save Opetushallitus/mocha-chrome@X.Y.Z
 ```
