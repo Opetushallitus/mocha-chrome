@@ -7,8 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  install-dependencies:
-    name: Install dependencies
+  lint:
+    name: Lint code
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -18,21 +18,9 @@ jobs:
           node-version-file: '.nvmrc'
           cache: npm
       - run: npm ci
-  lint:
-    name: Lint code
-    needs: install-dependencies
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js from .nvmrc
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-          cache: npm
       - run: npm run ci:lint
   run-tests:
     name: Run tests
-    needs: install-dependencies
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -41,4 +29,5 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: npm
+      - run: npm ci
       - run: npm run ci:test
