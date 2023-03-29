@@ -17,7 +17,7 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: npm
-      - run: npm run ci
+      - run: npm ci
   lint:
     name: Lint code
     needs: install-dependencies
