@@ -10,7 +10,7 @@
     "mocha-chrome": "./cli.js"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "scripts": {
     "ci:lint": "npm run lint && npm run security",
@@ -34,7 +34,7 @@
   "dependencies": {
     "chalk": "^2.0.1",
     "chrome-launcher": "^0.15.1",
-    "chrome-remote-interface": "^0.28.0",
+    "chrome-remote-interface": "^0.33.0",
     "chrome-unmirror": "^0.1.0",
     "debug": "^4.3.4",
     "deep-assign": "^3.0.0",
