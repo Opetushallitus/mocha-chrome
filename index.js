@@ -26,7 +26,7 @@ class MochaChrome {
         ignoreExceptions: false,
         ignoreResourceErrors: false,
         loadTimeout: 1000,
-        logLevel: 'error',
+        logLevel: 'debug',
         mocha: {
           color: true,
           reporter: 'spec',
@@ -36,7 +36,7 @@ class MochaChrome {
       options
     )
 
-    log.setDefaultLevel('error')
+    log.setDefaultLevel('debug')
     log.setLevel(options.logLevel)
 
     const bus = new EventBus(log)
